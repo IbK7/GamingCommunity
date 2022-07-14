@@ -4,9 +4,6 @@ var multer = require('multer')
 
 const User = require('../models/user.model')
 
-var fs = require('fs');
-var path = require('path');
-
 router.get('/', (req,res) => {
     const id = req.query.id;
  
@@ -47,5 +44,6 @@ router.post('/userProfile', upload.single('image'), (req, res, next) => {
         else res.status(201).json({message: "Details Updated", user: doc})
     })
 })
+
 
 module.exports = router;

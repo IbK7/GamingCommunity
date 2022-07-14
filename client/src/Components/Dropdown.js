@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
-import { Avatar } from "@mui/material";
+import { Avatar, Grid } from "@mui/material";
+import PersonIcon from '@mui/icons-material/Person';
+import LogoutIcon from '@mui/icons-material/Logout';
 
 const DropDownContainer = styled("div")`
   position: absolute;
@@ -48,7 +50,7 @@ const ListItem = styled("li")`
   padding-top: 0.6em;
   padding-left: 1em;
   &: hover {
-      background-color: #eeeeee;
+      background-color: #FF8C32;
       cursor: pointer;
   }
 `;
@@ -77,18 +79,27 @@ export default function Dropdown(props) {
         {isOpen && (
           <DropDownListContainer>
             <DropDownList>
-              {/* {options.map(option => (
-                <ListItem onClick={onOptionClicked(option)} key={Math.random()}>
-                  {option}
-                </ListItem>
-              ))} */}
                 <ListItem onClick={() => {navigate('/myprofile')}} key={1}>
-                    My Profile  
+                    <Grid container direction="row" alignItems="center" justifyContent="flex-start" spacing = {1} >
+                      <Grid item>
+                        <PersonIcon sx = {{color: "#06113C"}} />
+                      </Grid>
+                      <Grid item>
+                        My Profile
+                      </Grid>
+                    </Grid>
                 </ListItem>
 
                 <hr />
                 <ListItem onClick={handleLogout} key={3}>
-                    Logout  
+                <Grid container direction="row" alignItems="center" justifyContent="flex-start" spacing = {1} >
+                      <Grid item>
+                        <LogoutIcon sx = {{color: "#06113C"}} />
+                      </Grid>
+                      <Grid item>
+                        Logout
+                      </Grid>
+                    </Grid>
                 </ListItem>
             </DropDownList>
           </DropDownListContainer>
